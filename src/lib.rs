@@ -4,6 +4,7 @@ use wasm_bindgen::prelude::wasm_bindgen;
 #[wasm_bindgen]
 pub struct CellularAutomaton {
     automaton: Automaton,
+    initial_state: u128,
 }
 
 #[wasm_bindgen]
@@ -14,6 +15,7 @@ impl CellularAutomaton {
             .fold(0, |acc, &bit| (acc << 1) | bit as u128);
         CellularAutomaton {
             automaton: Automaton::new(rule, to_number),
+            initial_state: to_number,
         }
     }
 
@@ -23,6 +25,14 @@ impl CellularAutomaton {
 
     pub fn get_state(&self) -> Vec<u8> {
         self.automaton.to_vector()
+    }
+
+    pub fn set_rule(&mut self, rule: u8) {
+        self.automaton.rule = rule;
+    }
+
+    pub fn reset(&mut self) {
+        self.automaton.fields = self.initial_state;
     }
 }
 
@@ -53,5 +63,20 @@ mod tests {
         let mut expected = vec![0; 128];
         expected[0] = 1;
         assert_eq!(automaton.get_state(), expected);
+    }
+
+    #[test]
+    fn test_reset() {
+        let mut automaton = CellularAutomaton::new(30, vec![1; 128]);
+        automaton.step();
+        automaton.reset();
+        assert_eq!(automaton.get_state(), vec![1; 128]);
+    }
+
+    #[test]
+    fn test_set_rule() {
+        let mut automaton = CellularAutomaton::new(30, vec![1; 128]);
+        automaton.set_rule(0);
+        assert_eq!(automaton.automaton.rule, 0);
     }
 }

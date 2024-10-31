@@ -1,6 +1,6 @@
 [package]
 name = "wasm-elementary-cellular-automaton"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 
 [dependencies]
@@ -9,3 +9,7 @@ wasm-bindgen = "0.2.95"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
+
+[package.metadata.scripts]
+build = "rm -rf pkg && wasm-pack build --target bundler"
+publish = "wasm-pack publish"
