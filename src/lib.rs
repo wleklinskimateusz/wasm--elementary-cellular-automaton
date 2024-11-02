@@ -38,6 +38,10 @@ impl CellularAutomaton {
         self.automaton.fields = self.initial_state;
     }
 
+    pub fn set_periodic_boundary(&mut self, periodic_boundary: bool) {
+        self.automaton.periodic_boundary = periodic_boundary;
+    }
+
     pub fn reset(&mut self) {
         self.automaton.fields = self.initial_state;
     }
@@ -108,5 +112,12 @@ mod tests {
         let mut automaton = CellularAutomaton::new(128, vec![1; 128], true);
         automaton.step();
         assert_eq!(automaton.get_state(), vec![1; 128]);
+    }
+
+    #[test]
+    fn test_set_periodic_boundary() {
+        let mut automaton = CellularAutomaton::new(128, vec![1; 128], false);
+        automaton.set_periodic_boundary(true);
+        assert_eq!(automaton.automaton.periodic_boundary, true);
     }
 }

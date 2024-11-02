@@ -45,4 +45,10 @@ const App = () => {
 
 Full example you can find here: https://github.com/wleklinskimateusz/cellular-automaton-react
 
+Source code for the binding is here: https://github.com/wleklinskimateusz/wasm--elementary-cellular-automaton
+
+## License
+
+MIT License
+
 
