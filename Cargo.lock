@@ -16,9 +16,9 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
 name = "elementary-cellular-automaton"
-version = "0.1.0"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "114992abf081fa9a95b55edb1caf0c33bbbdf3203a06ead724d3433b243a6843"
+checksum = "3f41da29993232a4bd623b27cbef4499c041d0a0bb14073692af424f555f11c9"
 
 [[package]]
 name = "log"
@@ -124,7 +124,7 @@ checksum = "65fc09f10666a9f147042251e0dda9c18f166ff7de300607007e96bdebc1068d"
 
 [[package]]
 name = "wasm-elementary-cellular-automaton"
-version = "0.2.0"
+version = "0.3.2"
 dependencies = [
  "elementary-cellular-automaton",
  "wasm-bindgen",
