@@ -1,7 +1,8 @@
 [package]
 name = "wasm-elementary-cellular-automaton"
-version = "0.3.3"
+version = "0.3.4"
 edition = "2021"
+keywords = ["wasm", "automaton", "cellular", "elementary"]
 
 [dependencies]
 elementary-cellular-automaton = "0.2.0"
